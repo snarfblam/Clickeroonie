@@ -2,27 +2,15 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
-import ImageGrid from './components/ImageGrid' 
+import ImageGrid from './components/ImageGrid';
+import GameOver from './components/GameOver';
 
 class App extends Component {
     constructor() {
         super();
 
         this.state = {
-            images: shuffle([
-                img('dessgeega', 0),
-                img('holtz', 1),
-                img('geruta', 2),
-                img('mella', 3),
-                img('mellow', 4),
-                img('memu', 5),
-                img('rio', 6),
-                img('zebbo', 7),
-                img('zoomer', 8),
-                img('nova', 9),
-                img('zeb', 10),
-                img('squeept', 11),
-            ]),
+            images: this.getImageList(),
             shrunken: false,
             score: 0,
             topScore: 0,
@@ -31,6 +19,24 @@ class App extends Component {
         }
 
         this.enemyClick = this.enemyClick.bind(this);
+        this.tryAgainClick = this.tryAgainClick.bind(this);
+    }
+
+    getImageList() {
+        return shuffle([
+            img('dessgeega', 0),
+            img('holtz', 1),
+            img('geruta', 2),
+            img('mella', 3),
+            img('mellow', 4),
+            img('memu', 5),
+            img('rio', 6),
+            img('zebbo', 7),
+            img('zoomer', 8),
+            img('nova', 9),
+            img('zeb', 10),
+            img('squeept', 11),
+        ]);
     }
 
     enemyClick(evt) {
@@ -41,7 +47,6 @@ class App extends Component {
 
         var img = this.state.images.find(img => img.id == id);
         if (img.clicked) {
-            alert('fale');
             this.setState({ gameOver: true, loosingId: id });
         } else {
             this.setState({ shrunken: true });
@@ -60,6 +65,18 @@ class App extends Component {
         }
     }
 
+    nullClick(evt) {
+        evt.preventDefault();
+    }
+
+    tryAgainClick(evt) {
+        this.setState({
+            images: this.getImageList(),
+            loosingId: -1,
+            gameOver: false,
+            score: 0,
+        });
+    }
 
     render() {
         return (
@@ -68,13 +85,14 @@ class App extends Component {
                 <h1>Clickeroonie-Doonie</h1>
                 <ImageGrid
                     images={this.state.images}
-                    clickHandler={this.enemyClick}
+                    clickHandler={this.state.gameOver ? this.nullClick : this.enemyClick}
                     shrunken={this.state.shrunken}
                     gameOver={this.state.gameOver}
                     loosingId={this.state.loosingId}
                 />
-
-                <button className="big-button">Try Again</button>
+                <GameOver gameOver={this.state.gameOver} clickHandler={this.tryAgainClick} />
+                {/* {this.state.gameOver ? <button className="big-button">Try Again</button> : null} */}
+                
             </div>
         );
     }
