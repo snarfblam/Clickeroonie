@@ -1,15 +1,15 @@
 import React from 'react';
 
 var Header = props => (
-    <nav className="navbar navbar-dark bg-dark justify-content-between">
-        <h1 className="navbar-brand">
+    <nav className="page-header header-dark justify-content-between">
+        <p className="">
             Clickeroonie-doonie
-        </h1>
+        </p>
         <p>
             Do the clickening
         </p>
         <p>
-            Score: Doesn't exist yet
+            Score: {props.score} | Top: {props.topScore}
         </p>
     </nav>
 ); 
