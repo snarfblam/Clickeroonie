@@ -101,7 +101,7 @@ class App extends Component {
 function img(name, id, clicked) {
     return {
         name: name,
-        url: '/images/' + name + ".gif",
+        url: 'images/' + name + ".gif",
         clicked: clicked || false, // undefined --> false
         id: id,
         setClicked: function (value) {
