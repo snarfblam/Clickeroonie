@@ -24,6 +24,10 @@ class App extends Component {
                 img('squeept', 11),
             ]),
             shrunken: false,
+            score: 0,
+            topScore: 0,
+            gameOver: false,
+            loosingId: -1, 
         }
 
         this.enemyClick = this.enemyClick.bind(this);
@@ -38,6 +42,7 @@ class App extends Component {
         var img = this.state.images.find(img => img.id == id);
         if (img.clicked) {
             alert('fale');
+            this.setState({ gameOver: true, loosingId: id });
         } else {
             this.setState({ shrunken: true });
 
@@ -47,9 +52,9 @@ class App extends Component {
             shuffle(newData);
 
             setTimeout(() => {
-                this.setState({ images: newData});
+                this.setState({ images: newData, score: this.state.score + 1});
                 setTimeout(() => {
-                    this.setState({ shrunken: false });
+                    this.setState({ shrunken: false, topScore: Math.max(this.state.score, this.state.topScore) });
                 }, 10)
             }, 200)
         }
@@ -59,9 +64,17 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Header />
+                <Header score={this.state.score} topScore={this.state.topScore}/>
                 <h1>Clickeroonie-Doonie</h1>
-                <ImageGrid images={this.state.images} clickHandler={this.enemyClick} shrunken={this.state.shrunken}/>
+                <ImageGrid
+                    images={this.state.images}
+                    clickHandler={this.enemyClick}
+                    shrunken={this.state.shrunken}
+                    gameOver={this.state.gameOver}
+                    loosingId={this.state.loosingId}
+                />
+
+                <button className="big-button">Try Again</button>
             </div>
         );
     }

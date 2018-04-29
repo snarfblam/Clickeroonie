@@ -11,6 +11,20 @@ nav.navbar {
     color: white;
 }
 
+.header-dark {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.page-header {
+    display: flex;
+    padding-left: 4em;
+    padding-right: 4em;
+}
+
+.page-header p {
+    display: inline-block;
+    margin: 1em;
+}
 
 .enemy-card {
     /* height: 100%; */
@@ -44,4 +58,51 @@ nav.navbar {
     height: 10px;
     margin-top: 50px;
     transition: height .2s ease, margin-top .2s ease;
+}
+
+.enemy-dim {
+    opacity: 0.3;
+}
+
+.enemy-card-fail {
+    background: rgba(255, 0, 0, 0.5);
+}
+
+.big-button {
+    margin: 1rem;
+    background: black linear-gradient(black,rgb(51, 26, 26));
+    color: white;
+    font-size: 2rem;
+    padding: 1rem 3rem 1.5rem 3rem;
+    border: 1px black solid;
+    border-radius: 6px;
+    box-shadow: inset 0px -11px black;
+    /* margin-top: 8px;
+    padding-top: calc(1rem - 8px); */
+}
+
+.big-button:focus {
+    outline: none;
+    text-decoration: underline;
+}
+
+.big-button:active {
+    /* margin-top: 8px;
+    padding-top: calc(1rem - 8px); */
+    transform: translate(0, 8px);
+    padding-bottom: calc(1.5rem - 8px);
+    box-shadow: inset 0px -3px black;
+}
+
+@media screen and (max-width: 750px) {
+    .page-header {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+    .page-header p {
+        display: block;
+        margin: 0;
+        padding: 0.5em;
+    }
 }
