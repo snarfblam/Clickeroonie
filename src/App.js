@@ -82,7 +82,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Header score={this.state.score} topScore={this.state.topScore}/>
-                <h1>Clickeroonie-Doonie</h1>
+                <h3>Show off your click-each-image-but-only-once skills</h3>
                 <ImageGrid
                     images={this.state.images}
                     clickHandler={this.state.gameOver ? this.nullClick : this.enemyClick}

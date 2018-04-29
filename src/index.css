@@ -7,6 +7,9 @@ body {
   color: white;
 }
 
+h1, h2, h3, h4, h5 {
+    margin: 0.25em;
+}
 nav.navbar {
     color: white;
 }
