@@ -12,6 +12,6 @@ var Header = props => (
             Score: Doesn't exist yet
         </p>
     </nav>
-);
+); 
 
 export default Header;

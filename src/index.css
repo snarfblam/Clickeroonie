@@ -2,8 +2,46 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: url('https://img00.deviantart.net/621c/i/2016/237/b/5/metroid_anniversary_fan_art_by_noe_leyva-d45nima.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
 }
 
 nav.navbar {
     color: white;
+}
+
+
+.enemy-card {
+    /* height: 100%; */
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.288);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.enemy-container {
+    width: 100%;
+    height: 100px;
+    background: black;
+    border-radius: 4px;
+    overflow: hidden;
+    /* display: flex; */
+    /* align-items: center; */
+    /* align-content: center; */
+    /* text-align: center; */
+}
+
+.enemy-image {
+    width: auto;
+    height: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    transition: height .2s ease, margin-top .2s ease;
+}
+
+.enemy-shrink {
+    height: 10px;
+    margin-top: 50px;
+    transition: height .2s ease, margin-top .2s ease;
 }
