@@ -68,6 +68,12 @@ nav.navbar {
     background: rgba(255, 0, 0, 0.5);
 }
 
+.enemy-card-dim {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
 .big-button {
     margin: 1rem;
     background: black linear-gradient(black,rgb(51, 26, 26));
