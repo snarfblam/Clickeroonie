@@ -103,7 +103,7 @@ nav.navbar {
     box-shadow: inset 0px -3px black;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 767px) {
     .page-header {
         display: block;
         padding: 0;
