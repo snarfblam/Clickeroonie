@@ -13,6 +13,7 @@ var ImageGrid = props => {
                         imgInfo={imgInfo}
                         clickHandler={props.clickHandler}
                         shrunken={props.shrunken}
+                        key={imgInfo.id}
                     />
                 ))}    
             </div>

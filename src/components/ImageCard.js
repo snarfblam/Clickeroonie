@@ -12,7 +12,7 @@ var ImageCard = props => {
     if (props.fail) enemyCardClass += ' enemy-card-fail';
 
     return (
-        <div className="col-6 col-sm-4 col-md-3 p-2" key={imgInfo.id}>
+        <div className="col-6 col-sm-4 col-md-3 p-2">
             <div className={enemyCardClass}>
                 <a href="#enemy" data-id={imgInfo.id} onClick={props.clickHandler}>
                     <div className="enemy-container p-1">
